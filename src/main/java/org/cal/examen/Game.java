@@ -26,10 +26,6 @@ public class Game {
         }
     }
 
-    public boolean isPlayable() {
-        return (players.size() >= 2);
-    }
-
     public boolean add(Player player) {
         players.add(player);
         places[players.size()] = 0;
