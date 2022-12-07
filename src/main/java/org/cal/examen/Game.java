@@ -44,10 +44,10 @@ public class Game {
         if (inPenaltyBox[currentPlayer]) {
             if (roll % 2 != 0) {
                 isGettingOutOfPenaltyBox = true;
-                System.out.println(players.get(currentPlayer) + " is getting out of the penalty box");
+                System.out.println(players.get(currentPlayer).getName() + " is getting out of the penalty box");
                 moveCurrentPlayer(roll);
             } else {
-                System.out.println(players.get(currentPlayer) + " is not getting out of the penalty box");
+                System.out.println(players.get(currentPlayer).getName() + " is not getting out of the penalty box");
                 isGettingOutOfPenaltyBox = false;
             }
         } else {
@@ -109,7 +109,7 @@ public class Game {
 
     private boolean rewardPlayer() {
         purses[currentPlayer]++;
-        System.out.println(players.get(currentPlayer)
+        System.out.println(players.get(currentPlayer).getName()
                 + " now has "
                 + purses[currentPlayer]
                 + " Gold Coins.");
