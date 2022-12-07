@@ -1,7 +1,9 @@
 package org.cal.fonctionel;
 
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class MainFonctionnel {
 
@@ -19,10 +21,10 @@ public class MainFonctionnel {
     );
 
     public static void main(String[] args) {
-        //printStudents(studentsSortedByAge());
-        //printStudents(studentsAgeGt25SortedDescByAge());
+        printStudents(studentsSortedByAge());
+        printStudents(studentsAgeGt25SortedDescByAge());
         printStudents(sortedByFirstNameThenByLastName());
-        //groupByGenre();
+        groupByGenre();
     }
 
     private static void printStudents(List<Student> studentsToPrint) {
@@ -49,8 +51,12 @@ public class MainFonctionnel {
 
     private static void groupByGenre() {
         // Completer le code pour obtenir le resultat en commentaire plus bas
-       // final Map<String, List<Student>> collect = students.stream()
-        //System.out.println(collect);
+       final Map<String, List<Student>> collect = new HashMap<>();
+       students.forEach(student -> collect.put(
+               student.genre,
+               students.stream().filter(student1 -> student1.genre.equals(student.genre)).toList()
+               ));
+        System.out.println(collect);
         System.out.println();
 
         //{F=[Student[prenom=Yan, nom=Zhou, genre=F, age=23, noteGlobale=99]],
