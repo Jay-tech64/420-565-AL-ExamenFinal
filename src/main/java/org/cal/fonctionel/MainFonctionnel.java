@@ -37,9 +37,8 @@ public class MainFonctionnel {
     }
 
     private static List<Student> studentsAgeGt25SortedDescByAge() {
-        // Todo: Reste à mettre en ordre desc
         return students.stream()
-                .sorted(Comparator.comparingInt(Student::age))
+                .sorted(Comparator.comparingInt(Student::age).reversed())
                 .filter(student -> student.age > 25).toList();
     }
 
