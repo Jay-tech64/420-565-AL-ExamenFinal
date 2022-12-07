@@ -1,5 +1,6 @@
 package org.cal.fonctionel;
 
+import java.util.Comparator;
 import java.util.List;
 
 public class MainFonctionnel {
@@ -18,10 +19,10 @@ public class MainFonctionnel {
     );
 
     public static void main(String[] args) {
-        printStudents(studentsSortedByAge());
+        //printStudents(studentsSortedByAge());
         printStudents(studentsAgeGt25SortedDescByAge());
-        printStudents(sortedByFirstNameThenByLastName());
-        groupByGenre();
+        //printStudents(sortedByFirstNameThenByLastName());
+        //groupByGenre();
     }
 
     private static void printStudents(List<Student> studentsToPrint) {
@@ -30,14 +31,20 @@ public class MainFonctionnel {
     }
 
     private static List<Student> studentsSortedByAge() {
-        return null;
+        return students.stream().sorted(Comparator.comparingInt(Student::age)).toList();
     }
 
     private static List<Student> studentsAgeGt25SortedDescByAge() {
-        return null;
+        // Todo: Reste à mettre en ordre desc
+        return students.stream()
+                .sorted(Comparator.comparingInt(Student::age))
+                .filter(student -> student.age > 25).toList();
     }
 
     private static List<Student> sortedByFirstNameThenByLastName() {
+        // Todo: Reste à intégrer les Comparator dans un sorted
+        Comparator<Student> compareByFirstName = Comparator.comparing(Student::prenom);
+        Comparator<Student> compareByLastName = Comparator.comparing(Student::nom);
         return null;
     }
 
