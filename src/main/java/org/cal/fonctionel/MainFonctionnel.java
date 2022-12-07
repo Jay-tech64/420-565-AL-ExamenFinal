@@ -20,8 +20,8 @@ public class MainFonctionnel {
 
     public static void main(String[] args) {
         //printStudents(studentsSortedByAge());
-        printStudents(studentsAgeGt25SortedDescByAge());
-        //printStudents(sortedByFirstNameThenByLastName());
+        //printStudents(studentsAgeGt25SortedDescByAge());
+        printStudents(sortedByFirstNameThenByLastName());
         //groupByGenre();
     }
 
@@ -42,10 +42,9 @@ public class MainFonctionnel {
     }
 
     private static List<Student> sortedByFirstNameThenByLastName() {
-        // Todo: Reste à intégrer les Comparator dans un sorted
         Comparator<Student> compareByFirstName = Comparator.comparing(Student::prenom);
         Comparator<Student> compareByLastName = Comparator.comparing(Student::nom);
-        return null;
+        return students.stream().sorted(compareByFirstName).sorted(compareByLastName).toList();
     }
 
     private static void groupByGenre() {
